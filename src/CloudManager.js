@@ -11,6 +11,12 @@ class CloudManager
             this.cloud.anchor.set(0.5, 0.5);
             this.cloud.position.set(renderer.width * 1.3, renderer.height * Math.random());
 
+            // Diversify clouds size
+            let minScale = 0.2;
+            let maxScale = 1.2;
+            let scale = Math.random() * (maxScale - minScale) + minScale;
+            this.cloud.scale.set(scale, scale);
+
             stage.addChildAt(this.cloud, stage.children.length - 1);
             this.cloudsList.push(this.cloud);
         }.bind(this), 2000);
