@@ -35,7 +35,7 @@ export default class CloudManager
    * Randomly compute cloud entity position, scale and texture
    */
   reset(element) {
-    const { width, height } = window.screen
+    const { innerWidth, innerHeight } = window
     
     // Select texture randomly
     const texture = Math.random() > 0.5 ? "cloud_1" : "cloud_2";
@@ -43,7 +43,7 @@ export default class CloudManager
     // Set texture, anchor and position
     element.texture = Loader.shared.resources["assets/" + texture + ".png"].texture;
     element.anchor.set(0.5, 0.5);
-    element.position.set(width + (width * Math.random()), height * Math.random());
+    element.position.set(innerWidth + (innerWidth * Math.random()), innerHeight * Math.random());
 
     // Diversify clouds size
     const scale = Math.random() * 1 + 0.1;
